@@ -1,0 +1,23 @@
+name: 'Apollo Rover Fetch'
+description: 'fetch the current schema from Apollo Studio'
+inputs:
+  graph:
+    description: '@graph_id portion of the graph ref'
+    required: true
+  variant:
+    description: '@variant_name portion of the graph ref'
+    required: false
+    default: 'current'
+  federated:
+    description: 'true when interacting directly with a federated subgraph'
+    required: false
+    default: false
+  subgraph:
+    description: 'subgraph name'
+    required: false
+outputs:
+  schema:
+    description: 'base64 encoded fetched SDL'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
